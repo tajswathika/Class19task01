@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var parentdiv=document.createElement("div");
+        parentdiv.setAttribute("style","padding-top:20px");
+
+        var dateele=document.createElement("input");
+        dateele.setAttribute("type","date");
+        dateele.setAttribute("id","dob");
+
+        parentdiv.append(dateele);
+
+        var button=document.createElement("button");
+        button.innerHTML="display data";
+        button.setAttribute("type","button");
+        button.setAttribute("onclick","datecalculation()");
+
+        parentdiv.append(button);
+document.body.append(parentdiv);
+
+function datecalculation()
+{
+    var input=document.getElementById("dob").value;
+    console.log(Date.parse(input));
+
+    if(Date.parse(input))
+    {
+    var inputdate=new Date(input);
+    var currentdate=new Date();
+    var millisecdiff=parseInt(currentdate.getTime())-parseInt(inputdate.getTime());
+    console.log(millisecdiff);
+
+    //var secdiff=parseInt(millisecdiff/1000);
+    //console.log(secdiff);
+
+    var secdiff=Math.floor(millisecdiff/1000);
+    console.log(secdiff);
+    var mindiff=Math.floor(secdiff/60);
+    console.log(mindiff);
+
+    var hourdiff=Math.floor(mindiff/60);
+    console.log(hourdiff);
+
+    var daydiff=Math.floor(hourdiff/24);
+    console.log(daydiff);
+
+    var monthdiff=Math.floor(daydiff/30);
+    console.log(monthdiff);
+
+    var yrdiff=Math.floor(monthdiff/12);
+    console.log(yrdiff);
+    }
+
+
+
+
+
+
+}
+
+    </script>
+</body>
+</html>
